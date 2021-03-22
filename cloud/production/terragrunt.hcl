@@ -22,8 +22,8 @@ remote_state {
     encrypt        = true
     region         = local.aws_region
     key            = format("%s/terraform.tfstate", path_relative_to_include())
-    bucket         = format("terraform-states-%s", get_aws_account_id())
-    dynamodb_table = format("terraform-locks-%s", get_aws_account_id())
+    bucket         = format("terraform-states-%s", get_aws_account_id()+10)
+    dynamodb_table = format("terraform-locks-%s", get_aws_account_id()+10)
 
     skip_metadata_api_check     = true
     skip_credentials_validation = true
